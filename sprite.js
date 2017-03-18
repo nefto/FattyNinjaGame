@@ -1,10 +1,12 @@
 function createSprite(options) {
+	let clearOffset = 20;
+	
 	function render(drawCoordinates, clearCoordinates) {
 		this.context.clearRect(
-			clearCoordinates.x,
-			clearCoordinates.y,
-			this.width,
-			this.height
+			clearCoordinates.x - clearOffset,
+			clearCoordinates.y - clearOffset,
+			this.width + clearOffset * 2,
+			this.height + clearOffset * 2
 		);
 
 		this.context.drawImage(
