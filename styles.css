@@ -4,3 +4,15 @@
     margin: 0px auto;
     border: 2px solid black;
 }
+
+canvas {
+    position: absolute;
+}
+
+#game-canvas {
+    z-index: 10
+}
+
+#background-canvas {
+    z-index: 1
+}
