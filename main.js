@@ -45,6 +45,13 @@ window.addEventListener('load', function () {
 		if (ev.keyCode === 40) {
 			ninjaPhysicalBody.speed.y = speed;
 		}
+		
+		//Ninja's coordinatesX to be in the canvas only
+		if((ninjaPhysicalBody.coordinates.x > (gameWalkingLine * 2))) {
+			ninjaPhysicalBody.speed.x = -speed * 1.3;
+			} else if (ninjaPhysicalBody.coordinates.x <= 40) {
+			ninjaPhysicalBody.speed.x = +speed * 1.3;
+		}
 	});
 
 	let background = createBackground();
