@@ -3,10 +3,12 @@ window.addEventListener('load', function () {
 	let gameContext = gameCanvas.getContext('2d');
 
 	let ninjaRunningImg = document.getElementById('ninja-running');
+	let ninjaJumpingImg = document.getElementById('ninja-jumping');
 
 	let gameWalkingLine = gameCanvas.height - (ninjaRunningImg.height + 10);
 
 	let ninjaSprite = createSprite({
+		spriteSheets: [ninjaRunningImg, ninjaJumpingImg],
 		spriteSheet: ninjaRunningImg,
 		context: gameContext,
 		width: ninjaRunningImg.width / 4,
@@ -63,7 +65,7 @@ window.addEventListener('load', function () {
 		gravity.removeAccelerationHorizontalX(ninjaPhysicalBody, 0.1);
 
 		let lastNinjaCoordinates = ninjaPhysicalBody.move();
-		ninjaSprite.render(ninjaPhysicalBody.coordinates, lastNinjaCoordinates);
+		ninjaSprite.render(ninjaPhysicalBody.coordinates, lastNinjaCoordinates, gameWalkingLine);
 		ninjaSprite.update();
 
 		background.render();

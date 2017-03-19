@@ -1,13 +1,45 @@
 function createSprite(options) {
-	let clearOffset = 20;
+	let sprite = {
+		spriteSheets: options.spriteSheets,
+		spriteSheet: options.spriteSheets[1],
+		context: options.context,
+		width: options.width,
+		height: options.height,
+		numberOfFrames: options.numberOfFrames,
+		loopTicksPerFrame: options.loopTicksPerFrame,
+		frameIndex: 0,
+		loopTicksCount: 0,
+		render: render,
+		update: update,
+		switchAnimationSprite: switchAnimationSprite
+	};
 	
-	function render(drawCoordinates, clearCoordinates) {
+	let clearOffset = 20;
+
+	function isJumping(yCoordinate, gameWalkingLine){
+		if(yCoordinate !== gameWalkingLine){
+			return true;
+		}
+		return false;
+	}
+
+	function switchAnimationSprite (yCoordinate, gameWalkingLine) {
+		if (isJumping(yCoordinate, gameWalkingLine) === true){
+			sprite.spriteSheet = sprite.spriteSheets[1];
+		} else {
+			sprite.spriteSheet = sprite.spriteSheets[0];
+		}
+	}
+
+	function render(drawCoordinates, clearCoordinates, gameWalkingLine) {
 		this.context.clearRect(
 			clearCoordinates.x - clearOffset,
 			clearCoordinates.y - clearOffset,
 			this.width + clearOffset * 2,
 			this.height + clearOffset * 2
 		);
+
+		switchAnimationSprite(drawCoordinates.y, gameWalkingLine);
 
 		this.context.drawImage(
 			this.spriteSheet,
@@ -35,19 +67,6 @@ function createSprite(options) {
 		}
 
 	}
-
-	let sprite = {
-		spriteSheet: options.spriteSheet,
-		context: options.context,
-		width: options.width,
-		height: options.height,
-		numberOfFrames: options.numberOfFrames,
-		loopTicksPerFrame: options.loopTicksPerFrame,
-		frameIndex: 0,
-		loopTicksCount: 0,
-		render: render,
-		update: update
-	};
 
 	return sprite;
 }
