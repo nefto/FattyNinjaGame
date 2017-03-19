@@ -57,27 +57,23 @@ function createObstacle(options){
 	}
 	
 	function spawnBoxHurdle() {
-		let spawnChance = 0.01,
+		var spawnChance = 0.01,
 			spawnOffsetX = 200;
-
-		if (Math.random() < spawnChance) {
-			if (boxes.length) {
-				var lastBox = boxes[boxes.length - 1];
-				var newBox = createPhysicalBody({
+		var newBox = createPhysicalBody({
 					coordinates: { x: 1000, y: this.obstacleCrateYLine},
 					speed: { x: -3, y: 0 },
 					height: this.height,
 					width: this.width
 				});
-				boxes.push(newBox);
 
+		if (Math.random() < spawnChance) {
+			if (this.boxes.length) {
+				if (this.boxes[boxes.length-1].coordinates.x < 700){
+					var lastBox = boxes[boxes.length - 1];
+					boxes.push(newBox);
+				}
 			} else {
-				boxes.push(createPhysicalBody({
-					coordinates: { x: 1000, y: this.obstacleCrateYLine},
-					speed: { x: -3, y: 0 },
-					height: this.height,
-					width: this.width
-				}));
+				boxes.push(newBox);
 			}
 		}
 	}
@@ -87,7 +83,6 @@ function createObstacle(options){
 
 			box = this.boxes[i];
 
-			// if out of game field, remove pokeball
 			if (box.coordinates.x < -box.width) {
 				this.boxes.splice(i, 1);
 				i -= 1;
