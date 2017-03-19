@@ -1,5 +1,5 @@
 function createObstacle(options){
-    let boxes = [];
+    let obstacles = [];
 	
 	let obstacle = {
 		spriteSheets: options.spriteSheets,
@@ -14,12 +14,11 @@ function createObstacle(options){
 		loopTicksCount: 0,
 		render: render,
 		update: update,
-		boxes: boxes,
+		obstacles: obstacles,
 		spawnBoxHurdle: spawnBoxHurdle,
-		iterateBoxesArray: iterateBoxesArray
+		iterateObstaclesArray: iterateObstaclesArray
     };
     
-	
 	let clearOffset = 0;
 
     function render(drawCoordinates, clearCoordinates) {
@@ -67,13 +66,13 @@ function createObstacle(options){
 				});
 
 		if (Math.random() < spawnChance) {
-			if (this.boxes.length) {
-				if (this.boxes[boxes.length-1].coordinates.x < 700){
-					var lastBox = boxes[boxes.length - 1];
-					boxes.push(newBox);
+			if (this.obstacles.length) {
+				if (this.obstacles[obstacles.length-1].coordinates.x < 700){
+					var lastBox = obstacles[obstacles.length - 1];
+					this.obstacles.push(newBox);
 				}
 			} else {
-				boxes.push(newBox);
+				this.obstacles.push(newBox);
 			}
 		}
 	}
@@ -86,7 +85,7 @@ function createObstacle(options){
 		}
 	}
 
-	function iterateObstaclesArray(){
+	function iterateObstaclesArray(ninjaPhysicalBody){
 		for (i = 0; i < this.obstacles.length; i += 1) {
 
 			box = this.obstacles[i];
@@ -99,9 +98,10 @@ function createObstacle(options){
 			this.render(box.coordinates, lastObstacleCrateCoordinates);
 			this.update();
 
-			// if (ninjaPhysicalBody.collidesWith(box.body)) {
-			// 	alert("Game over!");
-			// }
+			if (box.collidesWith(ninjaPhysicalBody)) {
+				alert("Game over! Do a better GAME OVER SIGN");
+				//TODO: Proper "Game Over" sign
+			}
 		}
 	}
 
