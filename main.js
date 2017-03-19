@@ -4,7 +4,7 @@ window.addEventListener('load', function () {
 
 	let ninjaRunningImg = document.getElementById('ninja-running');
 
-	let gameWalkingLine = gameCanvas.height - (ninjaRunningImg.height + 15);
+	let gameWalkingLine = gameCanvas.height - (ninjaRunningImg.height + 10);
 
 	let ninjaSprite = createSprite({
 		spriteSheet: ninjaRunningImg,
