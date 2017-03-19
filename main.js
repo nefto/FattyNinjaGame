@@ -81,7 +81,7 @@ window.addEventListener('load', function () {
 		ninjaSprite.render(ninjaPhysicalBody.coordinates, lastNinjaCoordinates, gameWalkingLine);
 		ninjaSprite.update();
 
-		obstacleCrateSprite.iterateObstaclesArray();
+		obstacleCrateSprite.iterateObstaclesArray(ninjaPhysicalBody);
 		obstacleCrateSprite.spawnBoxHurdle();
 
 		background.render();
