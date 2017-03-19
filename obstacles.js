@@ -78,14 +78,20 @@ function createObstacle(options){
 		}
 	}
 
-	function iterateBoxesArray(){
-		for (i = 0; i < this.boxes.length; i += 1) {
-
-			box = this.boxes[i];
-
-			if (box.coordinates.x < -box.width) {
-				this.boxes.splice(i, 1);
+	function obstacleGarbageCollector(obstacle, index, obstacleArray){
+		if (obstacle.coordinates.x < -obstacle.width) {
+				obstacleArray.splice(index, 1);
 				i -= 1;
+				return true;
+		}
+	}
+
+	function iterateObstaclesArray(){
+		for (i = 0; i < this.obstacles.length; i += 1) {
+
+			box = this.obstacles[i];
+
+			if (obstacleGarbageCollector(box, i, this.obstacles)){
 				continue;
 			}
 
