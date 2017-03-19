@@ -10,6 +10,7 @@ function createPhysicalBody(options) {
 	}
 
 	function collidesWith(otherPhysicalBody) {
+		//otherPhysicalBody*2/3 е защото без /2*3 засича когато края на меча се докосне до препятствието
 		if (this.coordinates.x < otherPhysicalBody.coordinates.x + (otherPhysicalBody.width*2/3) &&
 				this.coordinates.x + this.width > otherPhysicalBody.coordinates.x &&
 				this.coordinates.y < otherPhysicalBody.coordinates.y + otherPhysicalBody.height &&
