@@ -4,8 +4,10 @@ window.addEventListener('load', function () {
 
 	let ninjaRunningImg = document.getElementById('ninja-running');
 	let ninjaJumpingImg = document.getElementById('ninja-jumping');
+	let obstacleCrateImg = document.getElementById('obstacle-crate');
 
 	let gameWalkingLine = gameCanvas.height - (ninjaRunningImg.height + 10);
+	let crateYLine = gameCanvas.height - (obstacleCrateImg.height + 10);
 
 	let ninjaSprite = createSprite({
 		spriteSheets: [ninjaRunningImg, ninjaJumpingImg],
@@ -22,6 +24,17 @@ window.addEventListener('load', function () {
 		speed: { x: 0, y: 0 },
 		height: ninjaSprite.height,
 		width: ninjaSprite.width
+	});
+
+	let obstacleCrateSprite = createObstacle({
+		spriteSheets: [obstacleCrateImg],
+		spriteSheet: obstacleCrateImg,
+		context: gameContext,
+		width: obstacleCrateImg.width,
+		height: obstacleCrateImg.height,
+		obstacleCrateYLine: crateYLine,
+		numberOfFrames: 1,
+		loopTicksPerFrame: 1
 	});
 
 	window.addEventListener('keydown', function (ev) {
@@ -67,6 +80,9 @@ window.addEventListener('load', function () {
 		let lastNinjaCoordinates = ninjaPhysicalBody.move();
 		ninjaSprite.render(ninjaPhysicalBody.coordinates, lastNinjaCoordinates, gameWalkingLine);
 		ninjaSprite.update();
+
+		obstacleCrateSprite.iterateBoxesArray();
+		obstacleCrateSprite.spawnBoxHurdle();
 
 		background.render();
 		background.update();
