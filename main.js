@@ -23,7 +23,7 @@ window.addEventListener('load', function () {
 		coordinates: { x: 30, y: gameWalkingLine / 2 },
 		speed: { x: 0, y: 0 },
 		height: ninjaSprite.height,
-		width: ninjaSprite.width
+		width: ninjaSprite.width*2/3
 	});
 
 	let obstacleCrateSprite = createObstacle({
