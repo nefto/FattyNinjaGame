@@ -10,7 +10,12 @@ function createPhysicalBody(options) {
 	}
 
 	function collidesWith(otherPhysicalBody) {
-		// TODO
+		if (this.coordinates.x < otherPhysicalBody.coordinates.x + (otherPhysicalBody.width*2/3) &&
+				this.coordinates.x + this.width > otherPhysicalBody.coordinates.x &&
+				this.coordinates.y < otherPhysicalBody.coordinates.y + otherPhysicalBody.height &&
+				this.coordinates.y + this.height > otherPhysicalBody.coordinates.y){
+			return true;
+		}
 	}
 
 	let physicalBody = {
@@ -18,7 +23,8 @@ function createPhysicalBody(options) {
 		speed: options.speed,
 		height: options.height,
 		width: options.width,
-		move: move
+		move: move,
+		collidesWith: collidesWith
 	};
 
 	return physicalBody;
