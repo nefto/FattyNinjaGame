@@ -5,6 +5,7 @@ window.addEventListener('load', function () {
 	let ninjaRunningImg = document.getElementById('ninja-running');
 	let ninjaJumpingImg = document.getElementById('ninja-jumping');
 	let obstacleCrateImg = document.getElementById('obstacle-crate');
+	let music = document.getElementById('music');
 
 	let gameWalkingLine = gameCanvas.height - (ninjaRunningImg.height + 10);
 	let crateYLine = gameCanvas.height - (obstacleCrateImg.height + 10);
@@ -66,6 +67,15 @@ window.addEventListener('load', function () {
 			ninjaPhysicalBody.speed.x = -speed * 1.3;
 			} else if (ninjaPhysicalBody.coordinates.x <= 40) {
 			ninjaPhysicalBody.speed.x = +speed * 1.3;
+		}
+		
+		//Use "m" - button to Mute/Unmute the music, NEEDS BUTTON OR HINT IMAGE
+		if (ev.keyCode === 77) {
+			if (this.music.muted === false){
+				this.music.muted = 'true';
+			} else {
+				this.music.muted = false;
+			}
 		}
 	});
 
