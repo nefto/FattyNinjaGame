@@ -16,3 +16,11 @@ canvas {
 #background-canvas {
     z-index: 1
 }
+
+img {
+    width: 20px;
+    float: right;
+    z-index: 20;
+    padding: 10px;
+    position: relative;
+}
