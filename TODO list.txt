@@ -12,11 +12,11 @@ TODO List:
 	[]
 -Add mute button
 	[]
--Àdd initial page and game instructions
+-Ã€dd initial page and game instructions
 	[]
 -Add game points
-	[]
+	[Neven]
 -Add top players list
-	[]
+	[Neven]
 
 *If someone needs more fat ninja sprites: https://image-gr.s3.envato.com/files/130370836/Preview.jpg
