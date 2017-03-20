@@ -99,8 +99,7 @@ function createObstacle(options){
 			this.update();
 
 			if (box.collidesWith(ninjaPhysicalBody)) {
-				alert("Game over! Do a better GAME OVER SIGN");
-				//TODO: Proper "Game Over" sign
+				window.open("game-over-page.html", "_self", false);
 			}
 		}
 	}

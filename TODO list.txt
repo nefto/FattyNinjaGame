@@ -8,8 +8,6 @@ TODO List:
 	[]
 -Add pause of the game(and button)
 	[]
--Add game over screen
-	[]
 -Add mute button
 	[]
 -Àdd initial page and game instructions
