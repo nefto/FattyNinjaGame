@@ -1,0 +1,22 @@
+TODO List:
+
+-Add lying down ninja functionality
+	[write name here if you want to take the task]
+-Add obtacles under which ninja could pass
+	[]
+-Add functionality of breaking the boxes with the sword
+	[]
+-Add pause of the game(and button)
+	[]
+-Add game over screen
+	[]
+-Add mute button
+	[]
+-Àdd initial page and game instructions
+	[]
+-Add game points
+	[]
+-Add top players list
+	[]
+
+*If someone needs more fat ninja sprites: https://image-gr.s3.envato.com/files/130370836/Preview.jpg
