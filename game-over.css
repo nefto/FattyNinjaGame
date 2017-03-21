@@ -1,33 +1,62 @@
-#game-container {
-	width: 1024px;
+@font-face {
+	font-family: myFont;
+	src: url("./bradley-hand-itc.ttf");
+	}
+
+#end-game-container {
+   	width: 1024px;
     height: 512px;
     margin: 0px auto;
 }
 
 #background {
     border: 2px solid black;
-    filter: brightness(20%);
     position: absolute;
     z-index: 3;
 }
 
-#game-over {
+#ninja {
+    position: relative;
     z-index: 10;
-    width: 400px;
-    margin-top: 120px;
-    margin-left: 300px;
+    width: 200px;
+    height: 200px;
+    padding-left: 420px;
+    padding-top: 130px;
 }
 
-#start-game {
-    z-index: 20;
+#play-button {
+    font-size: 30px;
+    font-family: myFont;
+    font-weight: bold;
+    font: black;
+    text-align: center;
+    cursor: pointer;
     position: relative;
-    padding: 400px;
+    z-index: 15;
+    display: block;
+    padding: 5px;
+    margin-left: 430px;
+    margin-right: 400px;
+    margin-top: 10px;
 }
 
-#start-img{
-    width:180px;
+a {
+    border: 2px solid black;
+    border-radius: 15px;
+    color: black;
+    background: #E8871D;
+    text-decoration: none;
+} 
+
+a:hover {
+    color: black;
+    background: #F0AA5E;
 }
 
-img {
-    position: relative;
+a:active {
+    color: black;
+}
+
+a:visited {
+     color:black;
 }

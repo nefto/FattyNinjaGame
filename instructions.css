@@ -61,11 +61,6 @@ span {
     margin-right: 10px;
 }
 
-#music-key {
-    padding-right: 2px;
-    padding-left: 2px;
-}
-
 #back {
     position: relative;
     z-index: 15;
@@ -73,7 +68,6 @@ span {
     padding-left: 280px;
     margin-top: 10px;
 }
-
 
 a:hover {
     color: #804000;
