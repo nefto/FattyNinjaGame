@@ -68,15 +68,6 @@ window.addEventListener('load', function () {
 			} else if (ninjaPhysicalBody.coordinates.x <= 40) {
 			ninjaPhysicalBody.speed.x = +speed * 1.3;
 		}
-		
-		//Use "m" - button to Mute/Unmute the music, NEEDS BUTTON OR HINT IMAGE
-		if (ev.keyCode === 77) {
-			if (this.music.muted === false){
-				this.music.muted = 'true';
-			} else {
-				this.music.muted = false;
-			}
-		}
 	});
 
 	let background = createBackground();

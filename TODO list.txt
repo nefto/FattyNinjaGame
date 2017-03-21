@@ -8,8 +8,6 @@ TODO List:
 	[]
 -Add pause of the game(and button)
 	[]
--Add game points
-	[]
 -Add top players list
 	[]
 
