@@ -77,7 +77,6 @@ function createObstacle(options) {
 		}
 	}
 
-
 	function obstacleGarbageCollector(obstacle, index, obstacleArray) {
 		if (obstacle.coordinates.x < -obstacle.width) {
 			obstacleArray.splice(index, 1);
@@ -85,7 +84,6 @@ function createObstacle(options) {
 			return true;
 		}
 	}
-
 
 	function iterateObstaclesArray(ninjaPhysicalBody) {
 		for (i = 0; i < this.obstacles.length; i += 1) {
@@ -116,7 +114,7 @@ function createObstacle(options) {
 
 	let score = 0;
 	let labelElement = document.getElementById('lblScore');
-	let deviation = 2.5;
+	let deviation = 1;
 	
 	function updateScore(box, ninjaPhysicalBody) {
 		if (box.coordinates.x <= ninjaPhysicalBody.coordinates.x + deviation &&

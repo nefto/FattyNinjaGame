@@ -24,7 +24,7 @@ window.addEventListener('load', function () {
 		coordinates: { x: 30, y: gameWalkingLine / 2 },
 		speed: { x: 0, y: 0 },
 		height: ninjaSprite.height,
-		width: ninjaSprite.width*2/3
+		width: ninjaSprite.width * 2 / 3
 	});
 
 	let obstacleCrateSprite = createObstacle({
@@ -55,17 +55,20 @@ window.addEventListener('load', function () {
 		}
 		// right arrow => walk right
 		if (ev.keyCode === 39) {
+			if (ninjaPhysicalBody.coordinates.y < gameWalkingLine) {
+				return;
+			}
 			ninjaPhysicalBody.speed.x = speed;
 		}
 		// down arrow => fall faster
 		if (ev.keyCode === 40) {
 			ninjaPhysicalBody.speed.y = speed;
 		}
-		
+
 		//Ninja's coordinatesX to be in the canvas only
-		if((ninjaPhysicalBody.coordinates.x > (gameWalkingLine * 2))) {
+		if ((ninjaPhysicalBody.coordinates.x > (gameWalkingLine * 2))) {
 			ninjaPhysicalBody.speed.x = -speed * 1.3;
-			} else if (ninjaPhysicalBody.coordinates.x <= 40) {
+		} else if (ninjaPhysicalBody.coordinates.x <= 40) {
 			ninjaPhysicalBody.speed.x = +speed * 1.3;
 		}
 	});
